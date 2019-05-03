@@ -28,7 +28,7 @@ class TicTacToeEnv(gym.Env):
         }
         self.action_space = spaces.Discrete(9)
 
-    def _reset(self):
+    def reset(self):
         self.state_vector = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         return self.state_vector
 
@@ -61,7 +61,7 @@ class TicTacToeEnv(gym.Env):
         return True
 
     # ------------------------------------------ ACTIONS ----------------------------------------
-    def _step(self, action, symbol):
+    def step(self, action, symbol):
         is_position_already_used = False
 
         if self.state_vector[action] != 0:
@@ -113,7 +113,7 @@ class TicTacToeEnv(gym.Env):
 
         print()
 
-    def _render(self, mode=None, close=False):
+    def render(self, mode=None, close=False):
         self.display_grid(self.get_state_vector_to_display())
 
     def _close(self):
